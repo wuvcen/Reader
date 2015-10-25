@@ -72,29 +72,31 @@
 
 - (void)showOrHideTopMenu {
     if (self.topMenu.hidden) {
+        self.topMenu.hidden = NO;
         [UIView animateWithDuration:0.2 animations:^{
             self.topMenu.frame = CGRectMake(0, 0, self.view.bounds.size.width, 60);
         }];
-        self.topMenu.hidden = NO;
     } else {
         [UIView animateWithDuration:0.2 animations:^{
             self.topMenu.frame = CGRectMake(0, -60, self.view.bounds.size.width, 60);
+        } completion:^(BOOL finished) {
+            self.topMenu.hidden = YES;
         }];
-        self.topMenu.hidden = YES;
     }
 }
 
 - (void)showOrHideBottomMenu {
     if (self.bottomMenu.hidden) {
+        self.bottomMenu.hidden = NO;
         [UIView animateWithDuration:0.2 animations:^{
             self.bottomMenu.frame = CGRectMake(0, self.view.bounds.size.height - 60, self.view.bounds.size.width, 60);
         }];
-        self.bottomMenu.hidden = NO;
     } else {
         [UIView animateWithDuration:0.2 animations:^{
             self.bottomMenu.frame = CGRectMake(0, self.view.bounds.size.height, self.view.bounds.size.width, 60);
+        } completion:^(BOOL finished) {
+            self.bottomMenu.hidden = YES;
         }];
-        self.bottomMenu.hidden = YES;
     }
 }
 

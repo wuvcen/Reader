@@ -83,7 +83,7 @@
                 <outlet property="chosePage" destination="rEb-RM-4J1" id="SxH-Oi-xlF"/>
                 <outlet property="reserve" destination="Vsc-76-KbK" id="BrA-dr-GXk"/>
             </connections>
-            <point key="canvasLocation" x="524" y="-107"/>
+            <point key="canvasLocation" x="522" y="-104"/>
         </view>
     </objects>
 </document>
