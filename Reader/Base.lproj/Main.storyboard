@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="bHq-nb-byq">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+    </dependencies>
+    <scenes>
+        <!--书架-->
+        <scene sceneID="9ng-4H-sT1">
+            <objects>
+                <collectionViewController id="XuW-E9-5Oj" customClass="CollectionViewController" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="iFL-Js-NAI">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <animations/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="3HX-Vs-nLi">
+                            <size key="itemSize" width="50" height="50"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells/>
+                        <connections>
+                            <outlet property="dataSource" destination="XuW-E9-5Oj" id="HlH-Bo-d9k"/>
+                            <outlet property="delegate" destination="XuW-E9-5Oj" id="P7S-jN-yWC"/>
+                        </connections>
+                    </collectionView>
+                    <navigationItem key="navigationItem" title="书架" id="3we-Gy-1nK"/>
+                    <connections>
+                        <segue destination="Vbi-3W-Tlg" kind="presentation" identifier="PushToPageView" modalTransitionStyle="flipHorizontal" id="hAF-Gq-cZl"/>
+                    </connections>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="blB-0I-Fvy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="74" y="352"/>
+        </scene>
+        <!--Page View Controller-->
+        <scene sceneID="KSM-W2-HTk">
+            <objects>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="pageCurl" navigationOrientation="horizontal" spineLocation="min" id="Vbi-3W-Tlg" customClass="PageViewController" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="KnT-JE-QlF"/>
+                </pageViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="u9w-O3-lr3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="743" y="352"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Ex8-T4-jhm">
+            <objects>
+                <navigationController id="bHq-nb-byq" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Vk5-qb-FUd">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <animations/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="XuW-E9-5Oj" kind="relationship" relationship="rootViewController" id="af9-Zj-mEV"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5NN-dn-tSy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-589" y="352"/>
+        </scene>
+    </scenes>
+</document>
