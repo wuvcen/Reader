@@ -9,6 +9,11 @@
 #import <UIKit/UIKit.h>
 
 @interface TopMenuInPageVC : UIView
-@property (weak, nonatomic) IBOutlet UIButton *backButton;
+
+@property (weak, nonatomic) IBOutlet UISwitch *nightSwitch;
+@property (weak, nonatomic) IBOutlet UIButton *smallerFont;
+@property (weak, nonatomic) IBOutlet UIButton *biggerFont;
+
 + (instancetype)topMenu;
+
 @end

@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		9B24B1711BDBDC4900F8DBF8 /* TopMenuInPageVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B24B1701BDBDC4900F8DBF8 /* TopMenuInPageVC.m */; };
-		9B24B1731BDBDC7700F8DBF8 /* TopMenuInPageVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B24B1721BDBDC7700F8DBF8 /* TopMenuInPageVC.xib */; };
 		9B7407841BDB631300FFD571 /* BookCoverCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B7407821BDB631300FFD571 /* BookCoverCell.m */; };
 		9B7407851BDB631300FFD571 /* BookCoverCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B7407831BDB631300FFD571 /* BookCoverCell.xib */; };
 		9B7407891BDB684500FFD571 /* 沙漏.txt in Resources */ = {isa = PBXBuildFile; fileRef = 9B7407861BDB684500FFD571 /* 沙漏.txt */; };
@@ -22,6 +21,9 @@
 		9BBF77AD1BDB5DEC0050EB44 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9BBF77AC1BDB5DEC0050EB44 /* Assets.xcassets */; };
 		9BBF77B01BDB5DEC0050EB44 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BBF77AE1BDB5DEC0050EB44 /* LaunchScreen.storyboard */; };
 		9BBF77BA1BDB5E490050EB44 /* CollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBF77B91BDB5E490050EB44 /* CollectionViewController.m */; };
+		9BDED57B1BDCCAFF00E5339D /* TopMenuInPageVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9BDED57A1BDCCAFF00E5339D /* TopMenuInPageVC.xib */; };
+		9BDED57E1BDCCB7D00E5339D /* BottomMenuInPageVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BDED57D1BDCCB7D00E5339D /* BottomMenuInPageVC.m */; };
+		9BDED5801BDCCB9600E5339D /* BottomMenuInPageVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9BDED57F1BDCCB9600E5339D /* BottomMenuInPageVC.xib */; };
 		B72856F7DB1403AD19224014 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 23AA6443F51C13E1CE64920B /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -30,7 +32,6 @@
 		39F75BBA9D3F4E24648EC9FF /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		9B24B16F1BDBDC4900F8DBF8 /* TopMenuInPageVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopMenuInPageVC.h; sourceTree = "<group>"; };
 		9B24B1701BDBDC4900F8DBF8 /* TopMenuInPageVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopMenuInPageVC.m; sourceTree = "<group>"; };
-		9B24B1721BDBDC7700F8DBF8 /* TopMenuInPageVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TopMenuInPageVC.xib; sourceTree = "<group>"; };
 		9B7407811BDB631300FFD571 /* BookCoverCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookCoverCell.h; sourceTree = "<group>"; };
 		9B7407821BDB631300FFD571 /* BookCoverCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookCoverCell.m; sourceTree = "<group>"; };
 		9B7407831BDB631300FFD571 /* BookCoverCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BookCoverCell.xib; sourceTree = "<group>"; };
@@ -51,6 +52,10 @@
 		9BBF77B11BDB5DEC0050EB44 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9BBF77B81BDB5E490050EB44 /* CollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionViewController.h; sourceTree = "<group>"; };
 		9BBF77B91BDB5E490050EB44 /* CollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionViewController.m; sourceTree = "<group>"; };
+		9BDED57A1BDCCAFF00E5339D /* TopMenuInPageVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TopMenuInPageVC.xib; sourceTree = "<group>"; };
+		9BDED57C1BDCCB7D00E5339D /* BottomMenuInPageVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BottomMenuInPageVC.h; sourceTree = "<group>"; };
+		9BDED57D1BDCCB7D00E5339D /* BottomMenuInPageVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BottomMenuInPageVC.m; sourceTree = "<group>"; };
+		9BDED57F1BDCCB9600E5339D /* BottomMenuInPageVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BottomMenuInPageVC.xib; sourceTree = "<group>"; };
 		F8DE58B98C5FFAE941D1C4A1 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -133,6 +138,7 @@
 		9BBF77B71BDB5DEF0050EB44 /* Headers */ = {
 			isa = PBXGroup;
 			children = (
+				9BDED57C1BDCCB7D00E5339D /* BottomMenuInPageVC.h */,
 				9B24B16F1BDBDC4900F8DBF8 /* TopMenuInPageVC.h */,
 				9B74078F1BDBB27800FFD571 /* PageDataViewController.h */,
 				9B74078C1BDBB08900FFD571 /* PageViewController.h */,
@@ -149,7 +155,9 @@
 				9B7407821BDB631300FFD571 /* BookCoverCell.m */,
 				9B7407831BDB631300FFD571 /* BookCoverCell.xib */,
 				9B24B1701BDBDC4900F8DBF8 /* TopMenuInPageVC.m */,
-				9B24B1721BDBDC7700F8DBF8 /* TopMenuInPageVC.xib */,
+				9BDED57A1BDCCAFF00E5339D /* TopMenuInPageVC.xib */,
+				9BDED57D1BDCCB7D00E5339D /* BottomMenuInPageVC.m */,
+				9BDED57F1BDCCB9600E5339D /* BottomMenuInPageVC.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -215,7 +223,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				9B7407891BDB684500FFD571 /* 沙漏.txt in Resources */,
-				9B24B1731BDBDC7700F8DBF8 /* TopMenuInPageVC.xib in Resources */,
+				9BDED57B1BDCCAFF00E5339D /* TopMenuInPageVC.xib in Resources */,
+				9BDED5801BDCCB9600E5339D /* BottomMenuInPageVC.xib in Resources */,
 				9B7407851BDB631300FFD571 /* BookCoverCell.xib in Resources */,
 				9BBF77B01BDB5DEC0050EB44 /* LaunchScreen.storyboard in Resources */,
 				9BBF77AD1BDB5DEC0050EB44 /* Assets.xcassets in Resources */,
@@ -267,6 +276,7 @@
 			files = (
 				9B7407841BDB631300FFD571 /* BookCoverCell.m in Sources */,
 				9BBF77A51BDB5DEC0050EB44 /* AppDelegate.m in Sources */,
+				9BDED57E1BDCCB7D00E5339D /* BottomMenuInPageVC.m in Sources */,
 				9BBF77A21BDB5DEC0050EB44 /* main.m in Sources */,
 				9B7407911BDBB27800FFD571 /* PageDataViewController.m in Sources */,
 				9B74078E1BDBB08900FFD571 /* PageViewController.m in Sources */,
