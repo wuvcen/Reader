@@ -13,13 +13,12 @@
 
 @interface PageViewController () <UIPageViewControllerDataSource, UIPageViewControllerDelegate>
 @property (nonatomic, strong) NSArray *pageContents;
+@property (nonatomic, strong) UIButton *coverButton;
 @property (nonatomic, strong) TopMenuInPageVC *topMenu;
 @property (nonatomic, strong) BottomMenuInPageVC *bottomMenu;
+@property (nonatomic, assign) BOOL isMenusHidden;
 @end
 @implementation PageViewController
-
-#pragma mark - Test
-//
 
 #pragma mark - Override
 
@@ -28,76 +27,71 @@
     self.dataSource = self;
     self.delegate = self;
     self.view.backgroundColor = [UIColor whiteColor];
-    [self setViewControllers:@[[self viewControllerAtIndex:1]] direction:UIPageViewControllerNavigationDirectionForward animated:YES completion:nil];
-    [self addCoverButton];
-    [self addMenus];
+    [self setViewControllers:@[[self viewControllerAtIndex:0]]
+                   direction:UIPageViewControllerNavigationDirectionForward animated:YES completion:nil];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    [UIView animateWithDuration:0.2 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
-        self.topMenu.hidden = NO;
-        self.bottomMenu.hidden = NO;
-        self.topMenu.frame = CGRectMake(0, 0, self.view.bounds.size.width, 60);
-        self.bottomMenu.frame = CGRectMake(0, self.view.bounds.size.height - 60, self.view.bounds.size.width, 60);
-    } completion:nil];
+    [self addMenus];
+    self.isMenusHidden = NO;
+    [self addCoverButton];
 }
 
-#pragma mark - SetUpSubViews
+- (void)setIsMenusHidden:(BOOL)isMenusHidden {
+    // 重写该set方法，控制上下 Menu 的显示与隐藏，和中间覆盖按钮的大小
+    _isMenusHidden = isMenusHidden;
+    [UIView animateWithDuration:0.2 animations:^{
+        if (isMenusHidden) {
+            self.topMenu.frame = CGRectMake(0, -60, self.view.bounds.size.width, 60);
+            self.bottomMenu.frame = CGRectMake(0, self.view.bounds.size.height, self.view.bounds.size.width, 60);
+            self.coverButton.frame = [self computeCoverButtonFrameSmall];
+        } else {
+            // 提前执行，后面completion中重复执行无碍
+            self.topMenu.hidden = isMenusHidden;
+            self.bottomMenu.hidden = isMenusHidden;
+            // ---
+            self.topMenu.frame = CGRectMake(0, 0, self.view.bounds.size.width, 60);
+            self.bottomMenu.frame = CGRectMake(0, self.view.bounds.size.height - 60, self.view.bounds.size.width, 60);
+            self.coverButton.frame = CGRectMake(0, 60, self.view.bounds.size.width, self.view.bounds.size.height - 120);
+        }
+    } completion:^(BOOL finished) {
+        self.topMenu.hidden = isMenusHidden;
+        self.bottomMenu.hidden = isMenusHidden;
+    }];
+}
+
+#pragma mark - ManageViews
 
 - (void)addCoverButton {
-    UIButton *button = [UIButton buttonWithType:UIButtonTypeSystem];
-    CGSize viewSize = self.view.bounds.size;
-    CGFloat w = viewSize.width / 2.0;
-    CGFloat h = viewSize.height / 2.0;
-    CGFloat x = (self.view.bounds.size.width - w) / 2.0;
-    CGFloat y = (self.view.bounds.size.height - h) / 2.0;
-    button.frame = CGRectMake(x, y, w, h);
-    button.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0];
-    [button addTarget:self action:@selector(showOrHideMenus) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:button];
+    self.coverButton = [UIButton buttonWithType:UIButtonTypeSystem];
+    self.coverButton.frame = CGRectMake(0, 60, self.view.bounds.size.width, self.view.bounds.size.height - 120);
+    self.coverButton.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0];
+    [self.coverButton addTarget:self action:@selector(didClickCoverButton) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:self.coverButton];
 }
 
 - (void)addMenus {
-    // topMenu
+    // top
     self.topMenu.hidden = YES;
     self.topMenu.frame = CGRectMake(0, -60, self.view.bounds.size.width, 60);
+    [self.topMenu.titleButton setTitle:self.title forState:UIControlStateNormal];
     [self.view addSubview:self.topMenu];
-    // bottomMenu
+    // bottom
     self.bottomMenu.hidden = YES;
     self.bottomMenu.frame = CGRectMake(0, self.view.bounds.size.height, self.view.bounds.size.width, 60);
     [self.bottomMenu.backBtn addTarget:self action:@selector(backToCollectionView) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:self.bottomMenu];
 }
 
-- (void)showOrHideTopMenu {
-    if (self.topMenu.hidden) {
-        self.topMenu.hidden = NO;
-        [UIView animateWithDuration:0.2 animations:^{
-            self.topMenu.frame = CGRectMake(0, 0, self.view.bounds.size.width, 60);
-        }];
-    } else {
-        [UIView animateWithDuration:0.2 animations:^{
-            self.topMenu.frame = CGRectMake(0, -60, self.view.bounds.size.width, 60);
-        } completion:^(BOOL finished) {
-            self.topMenu.hidden = YES;
-        }];
-    }
-}
-
-- (void)showOrHideBottomMenu {
-    if (self.bottomMenu.hidden) {
-        self.bottomMenu.hidden = NO;
-        [UIView animateWithDuration:0.2 animations:^{
-            self.bottomMenu.frame = CGRectMake(0, self.view.bounds.size.height - 60, self.view.bounds.size.width, 60);
-        }];
-    } else {
-        [UIView animateWithDuration:0.2 animations:^{
-            self.bottomMenu.frame = CGRectMake(0, self.view.bounds.size.height, self.view.bounds.size.width, 60);
-        } completion:^(BOOL finished) {
-            self.bottomMenu.hidden = YES;
-        }];
-    }
+- (CGRect)computeCoverButtonFrameSmall {
+    // 辅助方法，用于计算按钮为中间状态时的大小
+    CGSize viewSize = self.view.bounds.size;
+    CGFloat w = viewSize.width / 2.0;
+    CGFloat h = viewSize.height / 2.0;
+    CGFloat x = (self.view.bounds.size.width - w) / 2.0;
+    CGFloat y = (self.view.bounds.size.height - h) / 2.0;
+    return CGRectMake(x, y, w, h);
 }
 
 #pragma mark - Selectors
@@ -106,9 +100,8 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
-- (void)showOrHideMenus {
-    [self showOrHideTopMenu];
-    [self showOrHideBottomMenu];
+- (void)didClickCoverButton {
+    self.isMenusHidden = !self.isMenusHidden;
 }
 
 #pragma mark - LazyLoad
@@ -132,6 +125,14 @@
         _bottomMenu = [BottomMenuInPageVC bottomMenu];
     }
     return _bottomMenu;
+}
+
+- (UIButton *)coverButton {
+    if (_coverButton == nil) {
+        _coverButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        _coverButton.backgroundColor = [UIColor redColor];
+    }
+    return _coverButton;
 }
 
 #pragma mark - Navigation

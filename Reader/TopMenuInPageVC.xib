@@ -49,14 +49,29 @@
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4rm-Ni-oG0">
+                    <rect key="frame" x="250" y="18" width="100" height="35"/>
+                    <animations/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="100" id="HU7-fV-LbF"/>
+                        <constraint firstAttribute="height" constant="35" id="ejP-uz-K4s"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <state key="normal" title="Button">
+                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                </button>
             </subviews>
             <animations/>
             <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="J58-fq-wQj" firstAttribute="leading" secondItem="DAK-EZ-FCo" secondAttribute="trailing" constant="8" id="5h8-b9-rE1"/>
                 <constraint firstAttribute="trailing" secondItem="wyN-rU-9g8" secondAttribute="trailing" id="7sa-bX-X2Y"/>
+                <constraint firstItem="4rm-Ni-oG0" firstAttribute="centerX" secondItem="mMo-vt-ip1" secondAttribute="centerX" id="B4i-aK-E4p"/>
+                <constraint firstItem="4rm-Ni-oG0" firstAttribute="centerY" secondItem="mMo-vt-ip1" secondAttribute="centerY" id="DZj-xN-fV7"/>
                 <constraint firstItem="DAK-EZ-FCo" firstAttribute="leading" secondItem="mMo-vt-ip1" secondAttribute="leading" constant="8" id="LWn-bB-Jp0"/>
                 <constraint firstAttribute="centerY" secondItem="wyN-rU-9g8" secondAttribute="centerY" id="SLp-Rq-Y3C"/>
+                <constraint firstAttribute="bottom" secondItem="4rm-Ni-oG0" secondAttribute="bottom" constant="5" id="VzM-iV-c2U"/>
                 <constraint firstAttribute="bottom" secondItem="aJj-Kz-vui" secondAttribute="bottom" id="WZK-jj-6Pv"/>
                 <constraint firstAttribute="bottom" secondItem="wyN-rU-9g8" secondAttribute="bottom" id="Xnd-6L-YDN"/>
                 <constraint firstAttribute="bottom" secondItem="DAK-EZ-FCo" secondAttribute="bottom" constant="8" id="Xob-in-ZmO"/>
@@ -67,6 +82,7 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <variation key="default">
                 <mask key="constraints">
+                    <exclude reference="DZj-xN-fV7"/>
                     <exclude reference="mEn-Vk-csN"/>
                     <exclude reference="SLp-Rq-Y3C"/>
                 </mask>
@@ -75,6 +91,7 @@
                 <outlet property="biggerFont" destination="wyN-rU-9g8" id="BQa-qz-8Ox"/>
                 <outlet property="nightSwitch" destination="DAK-EZ-FCo" id="Lm3-n7-Cco"/>
                 <outlet property="smallerFont" destination="aJj-Kz-vui" id="XGY-PO-jVF"/>
+                <outlet property="titleButton" destination="4rm-Ni-oG0" id="Z5C-JK-MGX"/>
             </connections>
             <point key="canvasLocation" x="350" y="278"/>
         </view>
