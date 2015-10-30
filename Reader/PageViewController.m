@@ -27,8 +27,7 @@
     self.dataSource = self;
     self.delegate = self;
     self.view.backgroundColor = [UIColor whiteColor];
-    [self setViewControllers:@[[self viewControllerAtIndex:0]]
-                   direction:UIPageViewControllerNavigationDirectionForward animated:YES completion:nil];
+    [self setControllersAtIndex:0];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -72,12 +71,12 @@
 }
 
 - (void)addMenus {
-    // top
+    // Top
     self.topMenu.hidden = YES;
     self.topMenu.frame = CGRectMake(0, -60, self.view.bounds.size.width, 60);
     [self.topMenu.titleButton setTitle:self.title forState:UIControlStateNormal];
     [self.view addSubview:self.topMenu];
-    // bottom
+    // Bottom
     self.bottomMenu.hidden = YES;
     self.bottomMenu.frame = CGRectMake(0, self.view.bounds.size.height, self.view.bounds.size.width, 60);
     [self.bottomMenu.backBtn addTarget:self action:@selector(backToCollectionView) forControlEvents:UIControlEventTouchUpInside];
@@ -143,6 +142,11 @@
 
 #pragma mark - Others
 
+- (void)setControllersAtIndex:(NSUInteger)index {
+    [self setViewControllers:@[[self viewControllerAtIndex:index]]
+                   direction:UIPageViewControllerNavigationDirectionForward animated:NO completion:nil];
+}
+
 - (PageDataViewController *)viewControllerAtIndex:(NSInteger)index {
     if (self.pageContents.count == 0 || self.pageContents.count <= index) {
         return nil;
@@ -177,5 +181,21 @@
 }
 
 #pragma mark - <UIPageViewControllerDelegate>
+
+- (void)pageViewController:(UIPageViewController *)pageViewController willTransitionToViewControllers:(NSArray<UIViewController *> *)pendingViewControllers {
+    // 翻页动画执行之前隐藏上下菜单
+    self.topMenu.frame = CGRectMake(0, -60, self.view.bounds.size.width, 60);
+    self.bottomMenu.frame = CGRectMake(0, self.view.bounds.size.height, self.view.bounds.size.width, 60);
+    self.isMenusHidden = YES;
+}
+
+- (UIPageViewControllerSpineLocation)pageViewController:(UIPageViewController *)pageViewController spineLocationForInterfaceOrientation:(UIInterfaceOrientation)orientation {
+    // P.S.
+    UIViewController *currentViewController = self.viewControllers[0];
+    NSArray *viewControllers = @[currentViewController];
+    [self setViewControllers:viewControllers direction:UIPageViewControllerNavigationDirectionForward animated:YES completion:nil];
+    self.doubleSided = NO;
+    return UIPageViewControllerSpineLocationMin;
+}
 
 @end
