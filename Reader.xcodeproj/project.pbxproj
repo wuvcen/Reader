@@ -24,6 +24,7 @@
 		9BDED57B1BDCCAFF00E5339D /* TopMenuInPageVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9BDED57A1BDCCAFF00E5339D /* TopMenuInPageVC.xib */; };
 		9BDED57E1BDCCB7D00E5339D /* BottomMenuInPageVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BDED57D1BDCCB7D00E5339D /* BottomMenuInPageVC.m */; };
 		9BDED5801BDCCB9600E5339D /* BottomMenuInPageVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9BDED57F1BDCCB9600E5339D /* BottomMenuInPageVC.xib */; };
+		9BFE1F061BE3C8330023B015 /* NSString+Paging.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BFE1F051BE3C8330023B015 /* NSString+Paging.m */; };
 		B72856F7DB1403AD19224014 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 23AA6443F51C13E1CE64920B /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -56,6 +57,8 @@
 		9BDED57C1BDCCB7D00E5339D /* BottomMenuInPageVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BottomMenuInPageVC.h; sourceTree = "<group>"; };
 		9BDED57D1BDCCB7D00E5339D /* BottomMenuInPageVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BottomMenuInPageVC.m; sourceTree = "<group>"; };
 		9BDED57F1BDCCB9600E5339D /* BottomMenuInPageVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BottomMenuInPageVC.xib; sourceTree = "<group>"; };
+		9BFE1F041BE3C8330023B015 /* NSString+Paging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Paging.h"; sourceTree = "<group>"; };
+		9BFE1F051BE3C8330023B015 /* NSString+Paging.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Paging.m"; sourceTree = "<group>"; };
 		F8DE58B98C5FFAE941D1C4A1 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -117,6 +120,7 @@
 				9BBF77B91BDB5E490050EB44 /* CollectionViewController.m */,
 				9B74078D1BDBB08900FFD571 /* PageViewController.m */,
 				9B7407901BDBB27800FFD571 /* PageDataViewController.m */,
+				9BFE1F051BE3C8330023B015 /* NSString+Paging.m */,
 			);
 			path = Reader;
 			sourceTree = "<group>";
@@ -138,6 +142,7 @@
 		9BBF77B71BDB5DEF0050EB44 /* Headers */ = {
 			isa = PBXGroup;
 			children = (
+				9BFE1F041BE3C8330023B015 /* NSString+Paging.h */,
 				9BDED57C1BDCCB7D00E5339D /* BottomMenuInPageVC.h */,
 				9B24B16F1BDBDC4900F8DBF8 /* TopMenuInPageVC.h */,
 				9B74078F1BDBB27800FFD571 /* PageDataViewController.h */,
@@ -280,6 +285,7 @@
 				9BBF77A21BDB5DEC0050EB44 /* main.m in Sources */,
 				9B7407911BDBB27800FFD571 /* PageDataViewController.m in Sources */,
 				9B74078E1BDBB08900FFD571 /* PageViewController.m in Sources */,
+				9BFE1F061BE3C8330023B015 /* NSString+Paging.m in Sources */,
 				9B24B1711BDBDC4900F8DBF8 /* TopMenuInPageVC.m in Sources */,
 				9BBF77BA1BDB5E490050EB44 /* CollectionViewController.m in Sources */,
 			);
