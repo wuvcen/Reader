@@ -7,29 +7,53 @@
 //
 
 #import "PageModelController.h"
+#import "NSString+Paging.h"
 
 @interface PageModelController()
-@property (nonatomic, copy) NSString *text;          ///< 本书所有文本内容
-@property (nonatomic, strong) NSArray *pageContents; ///< 将文本分页后的所有页面数组
+@property (nonatomic, copy) NSString *text;             ///< 本书所有文本内容
+@property (nonatomic, strong) NSArray *pageRanges;      ///< 将文本分页后的所有页面数组
+@property (nonatomic, strong) NSDictionary *attributes; ///< 文本的属性
+@property (nonatomic, assign) NSInteger currentIndex;
 @end
 @implementation PageModelController
 
 #pragma mark - Custom
 
 - (PageDataController *)viewControllerAtIndex:(NSInteger)index {
-    if (self.pageContents.count == 0 || self.pageContents.count <= index) {
+    if (self.pageRanges.count == 0 || self.pageRanges.count <= index) {
         return nil;
     }
+    self.currentIndex = index;
     PageDataController *dataController = [[PageDataController alloc] init];
-    dataController.pageContent = [self.pageContents objectAtIndex:index];
+    NSString *currentContent = [self.text substringWithRange:NSRangeFromString(self.pageRanges[index])];
+    dataController.textViewContent = [[NSAttributedString alloc] initWithString:currentContent attributes:self.attributes];
     return dataController;
 }
 
 - (NSInteger)indexOfViewController:(PageDataController *)viewController {
-    return [self.pageContents indexOfObject:viewController.pageContent];
+    NSRange range = [self.text rangeOfString:[viewController.textViewContent string]];
+    return [self.pageRanges indexOfObject:NSStringFromRange(range)];
 }
 
 #pragma LazyLoad
+
+- (NSDictionary *)attributes {
+    if (_attributes == nil) {
+        NSMutableDictionary *resultAttributes = [NSMutableDictionary dictionaryWithCapacity:5];
+        // Font style
+        UIFont *font = [UIFont systemFontOfSize:16];
+        [resultAttributes setValue:font forKey:NSFontAttributeName];
+        [resultAttributes setValue:@(1.0) forKey:NSKernAttributeName];
+        // Paragraph style
+        NSMutableParagraphStyle * paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+        paragraphStyle.lineSpacing = 5.0;
+        paragraphStyle.paragraphSpacing = 10.0;
+        paragraphStyle.alignment = NSTextAlignmentJustified;
+        [resultAttributes setValue:paragraphStyle forKey:NSParagraphStyleAttributeName];
+        _attributes = [resultAttributes copy];
+    }
+    return _attributes;
+}
 
 - (NSString *)text {
     if (_text == nil) {
@@ -39,11 +63,13 @@
     return _text;
 }
 
-- (NSArray *)pageContents {
-    if (_pageContents == nil) {
-        _pageContents = @[@"A",@"B",@"C",@"D",@"E",@"F",@"G", self.bookName];
+- (NSArray *)pageRanges {
+    if (_pageRanges == nil) {
+        CGSize screenSize = [UIScreen mainScreen].bounds.size;
+        CGSize size = CGSizeMake(screenSize.width - (20 * 2), screenSize.height - 120); // 有问题！
+        _pageRanges = [self.text pageWithAttributes:self.attributes constrainToSize:size];
     }
-    return _pageContents;
+    return _pageRanges;
 }
 
 #pragma mark - <UIPageViewControllerDataSource>

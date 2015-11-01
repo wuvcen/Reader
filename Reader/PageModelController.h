@@ -12,6 +12,7 @@
 
 @interface PageModelController : NSObject <UIPageViewControllerDataSource>
 @property (nonatomic, copy) NSString *bookName;
+
 - (PageDataController *)viewControllerAtIndex:(NSInteger)index;          ///< 获取对应页码的Controller
 - (NSInteger)indexOfViewController:(PageDataController *)viewController; ///< 获取Controller对应的页码
 

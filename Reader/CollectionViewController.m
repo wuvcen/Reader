@@ -17,26 +17,14 @@
 
 static NSString * const reuseIdentifier = @"BookCoverCell";
 
-#pragma mark - Test
-
-- (void)printText {
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"十年" ofType:@"txt"];
-    NSString *contents = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
-    NSRange range = {500, 700};
-    NSString *output = [contents substringWithRange:range];
-    NSLog(@"%@", output);
-}
-
 #pragma mark - Override
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self configLayout];
-    [self.collectionView registerNib:[UINib nibWithNibName:@"BookCoverCell" bundle:nil] forCellWithReuseIdentifier:reuseIdentifier];
     [self.collectionView setBackgroundColor:[UIColor whiteColor]];
-    [self copyTxtFilesToUserDocumentDirectiory];
-    
-    // Test codes.
+    [self.collectionView registerNib:[UINib nibWithNibName:@"BookCoverCell" bundle:nil]
+          forCellWithReuseIdentifier:reuseIdentifier];
 }
 
 #pragma mark - Navigation
@@ -68,20 +56,7 @@ static NSString * const reuseIdentifier = @"BookCoverCell";
     self.collectionView.collectionViewLayout = flowLayout;
 }
 
-- (void)copyTxtFilesToUserDocumentDirectiory {
-    NSFileManager *fileManager = [NSFileManager defaultManager];
-    NSString *documentDir = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
-    NSArray *paths = [[NSBundle mainBundle] pathsForResourcesOfType:@"txt" inDirectory:nil];
-    NSString *aTxt = [documentDir stringByAppendingPathComponent:[paths[0] lastPathComponent]];
-    if ([fileManager fileExistsAtPath:aTxt]) {
-        return;
-    }
-    for (NSString *path in paths) {
-        [fileManager copyItemAtPath:path toPath:[documentDir stringByAppendingPathComponent:[path lastPathComponent]] error:nil];
-    }
-}
-
-#pragma mark <UICollectionViewDataSource>
+#pragma mark - <UICollectionViewDataSource>
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
     return 1;
@@ -97,7 +72,7 @@ static NSString * const reuseIdentifier = @"BookCoverCell";
     return cell;
 }
 
-#pragma mark <UICollectionViewDelegate>
+#pragma mark - <UICollectionViewDelegate>
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     [self performSegueWithIdentifier:@"PushToPageView" sender:@(indexPath.item)];

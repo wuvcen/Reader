@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface PageDataController : UIViewController
-@property (nonatomic, copy) NSString *pageContent;
+@property (nonatomic, strong) NSAttributedString *textViewContent;
 @end

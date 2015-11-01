@@ -146,7 +146,7 @@
 #pragma mark - Custom
 
 - (void)setControllersAtIndex:(NSUInteger)index {
-    [self setViewControllers:@[[self.modelController viewControllerAtIndex:index]]
+    [self setViewControllers:@[[self.modelController viewControllerAtIndex:0]]
                    direction:UIPageViewControllerNavigationDirectionForward animated:NO completion:nil];
 }
 
