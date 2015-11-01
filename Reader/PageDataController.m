@@ -1,16 +1,18 @@
 //
-//  PageDataViewController.m
+//  PageDataController.m
 //  Reader
 //
-//  Created by 吴伟城 on 15/10/24.
+//  Created by 吴伟城 on 15/11/1.
 //  Copyright © 2015年 吴伟城. All rights reserved.
 //
 
-#import "PageDataViewController.h"
+#import "PageDataController.h"
 
-@interface PageDataViewController ()
+@interface PageDataController ()
+
 @end
-@implementation PageDataViewController
+
+@implementation PageDataController
 
 #pragma mark - Override
 
