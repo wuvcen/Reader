@@ -7,16 +7,16 @@
 //
 
 #import "PageViewController.h"
-#import "PageDataViewController.h"
-#import "TopMenuInPageVC.h"
+#import "PageModelController.h"
 #import "BottomMenuInPageVC.h"
+#import "TopMenuInPageVC.h"
 
-@interface PageViewController () <UIPageViewControllerDataSource, UIPageViewControllerDelegate>
-@property (nonatomic, strong) NSArray *pageContents;
+@interface PageViewController () <UIPageViewControllerDelegate>
+@property (nonatomic, assign) BOOL isMenusHidden;
 @property (nonatomic, strong) UIButton *coverButton;
 @property (nonatomic, strong) TopMenuInPageVC *topMenu;
 @property (nonatomic, strong) BottomMenuInPageVC *bottomMenu;
-@property (nonatomic, assign) BOOL isMenusHidden;
+@property (nonatomic, strong) PageModelController *modelController; ///< 页面模型，实现数据源方法
 @end
 @implementation PageViewController
 
@@ -24,18 +24,20 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.dataSource = self;
-    self.delegate = self;
-    self.view.backgroundColor = [UIColor whiteColor];
     [self setControllersAtIndex:0];
+    self.view.backgroundColor = [UIColor whiteColor];
+    self.dataSource = self.modelController;
+    self.delegate = self;
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     [self addMenus];
-    self.isMenusHidden = NO;
+    [self setIsMenusHidden:NO];
     [self addCoverButton];
 }
+
+#pragma mark - Setters
 
 - (void)setIsMenusHidden:(BOOL)isMenusHidden {
     // 重写该set方法，控制上下 Menu 的显示与隐藏，和中间覆盖按钮的大小
@@ -49,7 +51,7 @@
             // 提前执行，后面completion中重复执行无碍
             self.topMenu.hidden = isMenusHidden;
             self.bottomMenu.hidden = isMenusHidden;
-            // ---
+
             self.topMenu.frame = CGRectMake(0, 0, self.view.bounds.size.width, 60);
             self.bottomMenu.frame = CGRectMake(0, self.view.bounds.size.height - 60, self.view.bounds.size.width, 60);
             self.coverButton.frame = CGRectMake(0, 60, self.view.bounds.size.width, self.view.bounds.size.height - 120);
@@ -60,7 +62,7 @@
     }];
 }
 
-#pragma mark - ManageViews
+#pragma mark - SetUpViews
 
 - (void)addCoverButton {
     self.coverButton = [UIButton buttonWithType:UIButtonTypeSystem];
@@ -84,7 +86,7 @@
 }
 
 - (CGRect)computeCoverButtonFrameSmall {
-    // 辅助方法，用于计算按钮为中间状态时的大小
+    // 计算按钮为中间状态时 CoverButton.frame
     CGSize viewSize = self.view.bounds.size;
     CGFloat w = viewSize.width / 2.0;
     CGFloat h = viewSize.height / 2.0;
@@ -93,7 +95,7 @@
     return CGRectMake(x, y, w, h);
 }
 
-#pragma mark - Selectors
+#pragma mark - @selectors
 
 - (void)backToCollectionView {
     [self dismissViewControllerAnimated:YES completion:nil];
@@ -105,11 +107,12 @@
 
 #pragma mark - LazyLoad
 
-- (NSArray *)pageContents {
-    if (_pageContents == nil) {
-        _pageContents = @[@"A",@"B",@"C",@"D",@"E",@"F",@"G"];
+- (PageModelController *)modelController {
+    if (_modelController == nil) {
+        _modelController = [[PageModelController alloc] init];
+        _modelController.bookName = self.title;
     }
-    return _pageContents;
+    return _modelController;
 }
 
 - (TopMenuInPageVC *)topMenu {
@@ -140,44 +143,11 @@
     //
 }
 
-#pragma mark - Others
+#pragma mark - Custom
 
 - (void)setControllersAtIndex:(NSUInteger)index {
-    [self setViewControllers:@[[self viewControllerAtIndex:index]]
+    [self setViewControllers:@[[self.modelController viewControllerAtIndex:index]]
                    direction:UIPageViewControllerNavigationDirectionForward animated:NO completion:nil];
-}
-
-- (PageDataViewController *)viewControllerAtIndex:(NSInteger)index {
-    if (self.pageContents.count == 0 || self.pageContents.count <= index) {
-        return nil;
-    }
-    PageDataViewController *dataViewController = [[PageDataViewController alloc] init];
-    dataViewController.pageContent = [self.pageContents objectAtIndex:index];
-    return dataViewController;
-}
-
-- (NSInteger)indexOfViewController:(PageDataViewController *)viewController {
-    return [self.pageContents indexOfObject:viewController.pageContent];
-}
-
-#pragma mark - <UIPageViewControllerDataSource>
-
-- (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerBeforeViewController:(UIViewController *)viewController {
-    NSInteger index = [self indexOfViewController:(PageDataViewController *)viewController];
-    if (index == 0 || index == NSNotFound) {
-        return nil;
-    }
-    --index;
-    return [self viewControllerAtIndex:index];
-}
-
-- (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerAfterViewController:(UIViewController *)viewController {
-    NSInteger index = [self indexOfViewController:(PageDataViewController *)viewController];
-    if (index == NSNotFound) {
-        return nil;
-    }
-    ++index;
-    return [self viewControllerAtIndex:index];
 }
 
 #pragma mark - <UIPageViewControllerDelegate>
@@ -190,7 +160,6 @@
 }
 
 - (UIPageViewControllerSpineLocation)pageViewController:(UIPageViewController *)pageViewController spineLocationForInterfaceOrientation:(UIInterfaceOrientation)orientation {
-    // P.S.
     UIViewController *currentViewController = self.viewControllers[0];
     NSArray *viewControllers = @[currentViewController];
     [self setViewControllers:viewControllers direction:UIPageViewControllerNavigationDirectionForward animated:YES completion:nil];
