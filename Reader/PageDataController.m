@@ -30,7 +30,6 @@
     textView.text = self.pageContent;
     textView.editable = NO;
     [self.view addSubview:textView];
-    
 }
 
 #pragma mark - Navigation
@@ -38,6 +37,5 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     //
 }
-
 
 @end

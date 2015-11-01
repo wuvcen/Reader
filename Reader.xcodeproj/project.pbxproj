@@ -91,6 +91,16 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		9B0B40DC1BE5A78600560EC6 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				9B7407811BDB631300FFD571 /* BookCoverCell.h */,
+				9B24B16F1BDBDC4900F8DBF8 /* TopMenuInPageVC.h */,
+				9BDED57C1BDCCB7D00E5339D /* BottomMenuInPageVC.h */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
 		9BBF77941BDB5DEC0050EB44 = {
 			isa = PBXGroup;
 			children = (
@@ -112,10 +122,10 @@
 		9BBF779F1BDB5DEC0050EB44 /* Reader */ = {
 			isa = PBXGroup;
 			children = (
-				9BBF77A91BDB5DEC0050EB44 /* Main.storyboard */,
 				9BBF77A01BDB5DEC0050EB44 /* Supporting Files */,
 				9BBF77B71BDB5DEF0050EB44 /* Headers */,
 				9BBF77BB1BDB5F6E0050EB44 /* Views */,
+				9BBF77A91BDB5DEC0050EB44 /* Main.storyboard */,
 				9BBF77A41BDB5DEC0050EB44 /* AppDelegate.m */,
 				9BBF77B91BDB5E490050EB44 /* CollectionViewController.m */,
 				9B74078D1BDBB08900FFD571 /* PageViewController.m */,
@@ -142,14 +152,12 @@
 		9BBF77B71BDB5DEF0050EB44 /* Headers */ = {
 			isa = PBXGroup;
 			children = (
-				9B0B40D91BE5A68700560EC6 /* PageDataController.h */,
-				9B0B40D61BE5A66400560EC6 /* PageModelController.h */,
-				9BDED57C1BDCCB7D00E5339D /* BottomMenuInPageVC.h */,
-				9B24B16F1BDBDC4900F8DBF8 /* TopMenuInPageVC.h */,
-				9B74078C1BDBB08900FFD571 /* PageViewController.h */,
+				9B0B40DC1BE5A78600560EC6 /* Views */,
 				9BBF77A31BDB5DEC0050EB44 /* AppDelegate.h */,
-				9B7407811BDB631300FFD571 /* BookCoverCell.h */,
 				9BBF77B81BDB5E490050EB44 /* CollectionViewController.h */,
+				9B74078C1BDBB08900FFD571 /* PageViewController.h */,
+				9B0B40D61BE5A66400560EC6 /* PageModelController.h */,
+				9B0B40D91BE5A68700560EC6 /* PageDataController.h */,
 			);
 			name = Headers;
 			sourceTree = "<group>";
@@ -158,10 +166,10 @@
 			isa = PBXGroup;
 			children = (
 				9B7407821BDB631300FFD571 /* BookCoverCell.m */,
-				9B7407831BDB631300FFD571 /* BookCoverCell.xib */,
 				9B24B1701BDBDC4900F8DBF8 /* TopMenuInPageVC.m */,
-				9BDED57A1BDCCAFF00E5339D /* TopMenuInPageVC.xib */,
 				9BDED57D1BDCCB7D00E5339D /* BottomMenuInPageVC.m */,
+				9B7407831BDB631300FFD571 /* BookCoverCell.xib */,
+				9BDED57A1BDCCAFF00E5339D /* TopMenuInPageVC.xib */,
 				9BDED57F1BDCCB9600E5339D /* BottomMenuInPageVC.xib */,
 			);
 			name = Views;

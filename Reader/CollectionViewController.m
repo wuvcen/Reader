@@ -16,7 +16,6 @@
 @implementation CollectionViewController
 
 static NSString * const reuseIdentifier = @"BookCoverCell";
-static NSString * const segueIdentifier = @"PushToPageView";
 
 #pragma mark - Test
 
@@ -101,7 +100,7 @@ static NSString * const segueIdentifier = @"PushToPageView";
 #pragma mark <UICollectionViewDelegate>
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    [self performSegueWithIdentifier:segueIdentifier sender:@(indexPath.item)];
+    [self performSegueWithIdentifier:@"PushToPageView" sender:@(indexPath.item)];
 }
 
 @end
