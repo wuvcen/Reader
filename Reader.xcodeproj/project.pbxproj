@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9B0B40D81BE5A66400560EC6 /* PageModelController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B0B40D71BE5A66400560EC6 /* PageModelController.m */; };
+		9B0B40DB1BE5A68700560EC6 /* PageDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B0B40DA1BE5A68700560EC6 /* PageDataController.m */; };
 		9B24B1711BDBDC4900F8DBF8 /* TopMenuInPageVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B24B1701BDBDC4900F8DBF8 /* TopMenuInPageVC.m */; };
 		9B7407841BDB631300FFD571 /* BookCoverCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B7407821BDB631300FFD571 /* BookCoverCell.m */; };
 		9B7407851BDB631300FFD571 /* BookCoverCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B7407831BDB631300FFD571 /* BookCoverCell.xib */; };
@@ -14,7 +16,6 @@
 		9B74078A1BDB684500FFD571 /* 左耳.txt in Resources */ = {isa = PBXBuildFile; fileRef = 9B7407871BDB684500FFD571 /* 左耳.txt */; };
 		9B74078B1BDB684500FFD571 /* 十年.txt in Resources */ = {isa = PBXBuildFile; fileRef = 9B7407881BDB684500FFD571 /* 十年.txt */; };
 		9B74078E1BDBB08900FFD571 /* PageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B74078D1BDBB08900FFD571 /* PageViewController.m */; };
-		9B7407911BDBB27800FFD571 /* PageDataViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B7407901BDBB27800FFD571 /* PageDataViewController.m */; };
 		9BBF77A21BDB5DEC0050EB44 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBF77A11BDB5DEC0050EB44 /* main.m */; };
 		9BBF77A51BDB5DEC0050EB44 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBF77A41BDB5DEC0050EB44 /* AppDelegate.m */; };
 		9BBF77AB1BDB5DEC0050EB44 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BBF77A91BDB5DEC0050EB44 /* Main.storyboard */; };
@@ -24,13 +25,16 @@
 		9BDED57B1BDCCAFF00E5339D /* TopMenuInPageVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9BDED57A1BDCCAFF00E5339D /* TopMenuInPageVC.xib */; };
 		9BDED57E1BDCCB7D00E5339D /* BottomMenuInPageVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BDED57D1BDCCB7D00E5339D /* BottomMenuInPageVC.m */; };
 		9BDED5801BDCCB9600E5339D /* BottomMenuInPageVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9BDED57F1BDCCB9600E5339D /* BottomMenuInPageVC.xib */; };
-		9BFE1F061BE3C8330023B015 /* NSString+Paging.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BFE1F051BE3C8330023B015 /* NSString+Paging.m */; };
 		B72856F7DB1403AD19224014 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 23AA6443F51C13E1CE64920B /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		23AA6443F51C13E1CE64920B /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		39F75BBA9D3F4E24648EC9FF /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		9B0B40D61BE5A66400560EC6 /* PageModelController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageModelController.h; sourceTree = "<group>"; };
+		9B0B40D71BE5A66400560EC6 /* PageModelController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageModelController.m; sourceTree = "<group>"; };
+		9B0B40D91BE5A68700560EC6 /* PageDataController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageDataController.h; sourceTree = "<group>"; };
+		9B0B40DA1BE5A68700560EC6 /* PageDataController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageDataController.m; sourceTree = "<group>"; };
 		9B24B16F1BDBDC4900F8DBF8 /* TopMenuInPageVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopMenuInPageVC.h; sourceTree = "<group>"; };
 		9B24B1701BDBDC4900F8DBF8 /* TopMenuInPageVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopMenuInPageVC.m; sourceTree = "<group>"; };
 		9B7407811BDB631300FFD571 /* BookCoverCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookCoverCell.h; sourceTree = "<group>"; };
@@ -41,8 +45,6 @@
 		9B7407881BDB684500FFD571 /* 十年.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "十年.txt"; sourceTree = "<group>"; };
 		9B74078C1BDBB08900FFD571 /* PageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageViewController.h; sourceTree = "<group>"; };
 		9B74078D1BDBB08900FFD571 /* PageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageViewController.m; sourceTree = "<group>"; };
-		9B74078F1BDBB27800FFD571 /* PageDataViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageDataViewController.h; sourceTree = "<group>"; };
-		9B7407901BDBB27800FFD571 /* PageDataViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageDataViewController.m; sourceTree = "<group>"; };
 		9BBF779D1BDB5DEC0050EB44 /* Reader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Reader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9BBF77A11BDB5DEC0050EB44 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		9BBF77A31BDB5DEC0050EB44 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -57,8 +59,6 @@
 		9BDED57C1BDCCB7D00E5339D /* BottomMenuInPageVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BottomMenuInPageVC.h; sourceTree = "<group>"; };
 		9BDED57D1BDCCB7D00E5339D /* BottomMenuInPageVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BottomMenuInPageVC.m; sourceTree = "<group>"; };
 		9BDED57F1BDCCB9600E5339D /* BottomMenuInPageVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BottomMenuInPageVC.xib; sourceTree = "<group>"; };
-		9BFE1F041BE3C8330023B015 /* NSString+Paging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Paging.h"; sourceTree = "<group>"; };
-		9BFE1F051BE3C8330023B015 /* NSString+Paging.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Paging.m"; sourceTree = "<group>"; };
 		F8DE58B98C5FFAE941D1C4A1 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -119,8 +119,8 @@
 				9BBF77A41BDB5DEC0050EB44 /* AppDelegate.m */,
 				9BBF77B91BDB5E490050EB44 /* CollectionViewController.m */,
 				9B74078D1BDBB08900FFD571 /* PageViewController.m */,
-				9B7407901BDBB27800FFD571 /* PageDataViewController.m */,
-				9BFE1F051BE3C8330023B015 /* NSString+Paging.m */,
+				9B0B40D71BE5A66400560EC6 /* PageModelController.m */,
+				9B0B40DA1BE5A68700560EC6 /* PageDataController.m */,
 			);
 			path = Reader;
 			sourceTree = "<group>";
@@ -142,10 +142,10 @@
 		9BBF77B71BDB5DEF0050EB44 /* Headers */ = {
 			isa = PBXGroup;
 			children = (
-				9BFE1F041BE3C8330023B015 /* NSString+Paging.h */,
+				9B0B40D91BE5A68700560EC6 /* PageDataController.h */,
+				9B0B40D61BE5A66400560EC6 /* PageModelController.h */,
 				9BDED57C1BDCCB7D00E5339D /* BottomMenuInPageVC.h */,
 				9B24B16F1BDBDC4900F8DBF8 /* TopMenuInPageVC.h */,
-				9B74078F1BDBB27800FFD571 /* PageDataViewController.h */,
 				9B74078C1BDBB08900FFD571 /* PageViewController.h */,
 				9BBF77A31BDB5DEC0050EB44 /* AppDelegate.h */,
 				9B7407811BDB631300FFD571 /* BookCoverCell.h */,
@@ -283,10 +283,10 @@
 				9BBF77A51BDB5DEC0050EB44 /* AppDelegate.m in Sources */,
 				9BDED57E1BDCCB7D00E5339D /* BottomMenuInPageVC.m in Sources */,
 				9BBF77A21BDB5DEC0050EB44 /* main.m in Sources */,
-				9B7407911BDBB27800FFD571 /* PageDataViewController.m in Sources */,
 				9B74078E1BDBB08900FFD571 /* PageViewController.m in Sources */,
-				9BFE1F061BE3C8330023B015 /* NSString+Paging.m in Sources */,
 				9B24B1711BDBDC4900F8DBF8 /* TopMenuInPageVC.m in Sources */,
+				9B0B40D81BE5A66400560EC6 /* PageModelController.m in Sources */,
+				9B0B40DB1BE5A68700560EC6 /* PageDataController.m in Sources */,
 				9BBF77BA1BDB5E490050EB44 /* CollectionViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
