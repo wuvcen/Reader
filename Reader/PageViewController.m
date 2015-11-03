@@ -10,6 +10,7 @@
 #import "PageModelController.h"
 #import "BottomMenuInPageVC.h"
 #import "TopMenuInPageVC.h"
+#import "GlobalModel.h"
 
 @interface PageViewController () <UIPageViewControllerDelegate>
 @property (nonatomic, assign) BOOL isMenusHidden;
@@ -17,6 +18,7 @@
 @property (nonatomic, strong) TopMenuInPageVC *topMenu;
 @property (nonatomic, strong) BottomMenuInPageVC *bottomMenu;
 @property (nonatomic, strong) PageModelController *modelController; ///< 页面模型，实现数据源方法
+@property (nonatomic, strong) GlobalModel *globalModel;
 @end
 @implementation PageViewController
 
@@ -107,6 +109,13 @@
 
 #pragma mark - LazyLoad
 
+- (GlobalModel *)globalModel {
+    if (_globalModel == nil) {
+        _globalModel = [GlobalModel sharedModel];
+    }
+    return _globalModel;
+}
+
 - (PageModelController *)modelController {
     if (_modelController == nil) {
         _modelController = [[PageModelController alloc] init];
@@ -144,6 +153,10 @@
 }
 
 #pragma mark - Custom
+
+- (void)loadText:(NSString *)text{
+    
+}
 
 - (void)setControllersAtIndex:(NSUInteger)index {
     [self setViewControllers:@[[self.modelController viewControllerAtIndex:0]]
